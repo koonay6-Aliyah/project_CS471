@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Era Coffee Studio</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #E3D5CA; text-align: center; margin: 0; }
+        nav { background: #4b3832; padding: 35px; }
+        nav a { color: #f5ebe0; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 40px; }
+        footer { margin-top: 50px; padding: 20px; color: #4b3832; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home:index' %}">الرئيسية</a>
+        <a href="{% url 'home:list' %}">قائمة القهوة</a>
+        <a href="{% url 'home:desert' %}">الحلى</a>
+        <a href="{% url 'home:about' %}"> من نحن </a>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>&copy; <b>2026 Coffee hand by Aliyah</b></footer>
+</body>
+</html>

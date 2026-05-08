@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; padding: 150px; flex-wrap: wrap; gap: 40px;">
+
+    <div style="flex: 1; min-width: 200px; max-width: 500px;">
+        <img src="{% static 'images/' %}{{ coffee.image }}" alt="{{ coffee.name }}"
+             style="width: 100%; border-radius: 30px; box-shadow: 0 15px 35px rgba(75, 56, 50, 0.3); border: 5px solid #4b3832;">
+    </div>
+
+    <div style="flex: 1; min-width: 300px; text-align: right; direction: rtl;">
+        <h1 style="color: #4b3832; font-size: 75px; margin-bottom: 10px;">{{ coffee.name }}</h1>
+        <h3 style="color: #8d775f; font-size: 30px; margin-bottom: 25px;">السعر: {{ coffee.price }}</h3>
+
+        <div style="background: white; padding: 40px; border-radius: 20px; border-right: 15px solid #4b3832; box-shadow:15px ">
+            <h4 style="font-size: 50px;color: #4b3832; margin-top: 0;">نبذة عن <b> {{ coffee.name }}</b> :</h4>
+            <p style="font-size: 55px; line-height: 1.5; color: #3e2723;">
+                {{ coffee.description }}
+            </p>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="{% url 'home:list' %}"
+               style="font-size: 35px;text-decoration: none; background: #4b3832; color: #f5ebe0; padding: 12px 25px; border-radius: 10px; font-weight: bold; transition: 0.3s;">
+               ← العودة للقائمة
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

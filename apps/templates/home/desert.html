@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2 style="color: #4B3832; text-align: center; margin: 30px 0; font-size: 45px;">قائمة الحلويات</h2>
+
+    <table style="margin: 20px auto; border-collapse: collapse; width: 85%; background: #F5EBE0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); direction: rtl;">
+        <thead style="background-color: #4B3832; color: white; font-size: 40px;">
+            <tr>
+                <th style="padding: 20px;">الصنف</th>
+                <th style="padding: 20px;">السعر</th>
+                <th style="padding: 20px;">الصورة</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr style="border-bottom: 1px solid #D2B48C; text-align: center; font-size: 45px; transition: 0.3s;">
+                <td style="padding: 25px;">
+                    <span style="color: #4B3832; font-weight: bold;">
+                        {{ item.name }}
+                    </span>
+                </td>
+                <td style="padding: 25px; color: #8d775f; font-weight: bold;">{{ item.price }}</td>
+                <td style="padding: 15px;">
+                    {% if item.image %}
+                        <img src="{% static 'images/' %}{{ item.image }}" alt="{{ item.name }}"
+                             style="width: 350px; height: 350px; object-fit: cover; border-radius: 10px; border: 2px solid #4B3832;">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="margin: 30px;">
+        <a href="{% url 'home:index' %}" style="text-decoration: none; color: #4B3832; font-weight: bold; font-size: 30px;">← العودة للرئيسية</a>
+    </div>
+{% endblock %}
